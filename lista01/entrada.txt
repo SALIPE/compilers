@@ -1,0 +1,4 @@
+int variavel1
+char variavel2
+
+int soma = variavel1 + variavel2
