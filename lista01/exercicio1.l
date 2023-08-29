@@ -17,7 +17,7 @@ int linha=1;
 %}
 NUMERO				[0-9]?
 RESERVADO			while|if|else|do|include|define|struct|for|int|char|float|double|string|short
-IDENTIFICADOR		[a-z]+[a-zA-Z]*[0-9]*			
+IDENTIFICADOR		[a-z]+[a-zA-Z_]*[0-9]*			
 OPERADOR			"*"|"/"|"+"|"-"|"%"|"||"|"&&"|"=="|"!="|"="
 %%
 {NUMERO}	{strcpy(lexema,yytext);return NUMERO;}
