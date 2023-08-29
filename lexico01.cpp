@@ -15,6 +15,7 @@
 #define VAZIO 0
 #define LETRA 1
 #define DIGITO 2
+#define UNDERLINE 3
 
 #define IDENTIFICADOR 100
 #define NUMERO_INTEIRO 101
@@ -36,6 +37,8 @@ void obtemCaracter()
 	c = getchar();
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		ClasseCaracter = LETRA;
+	else if (c == 95)
+		ClasseCaracter = UNDERLINE;
 	else if (c >= '0' && c <= '9')
 		ClasseCaracter = DIGITO;
 	else
@@ -58,14 +61,15 @@ int lexico()
 	//	}
 	switch (ClasseCaracter)
 	{
+	case UNDERLINE:
 	case LETRA:
-		while (ClasseCaracter == LETRA || ClasseCaracter == DIGITO)
+		while (ClasseCaracter == LETRA || ClasseCaracter == DIGITO || ClasseCaracter == UNDERLINE)
 		{
 			insereCaracter();
 			obtemCaracter();
 		}
 		printf("[IDENTIFICADOR]\n");
-		lexema[i] = "\0";
+		lexema[i] = '\0';
 		i = 0;
 		return IDENTIFICADOR;
 		break;
@@ -77,7 +81,7 @@ int lexico()
 			obtemCaracter();
 		}
 		printf("[DIGITO]\n");
-		lexema[i] = "\0";
+		lexema[i] = '\0';
 		i = 0;
 		return NUMERO_INTEIRO;
 		break;
@@ -95,10 +99,12 @@ int main()
 		if (token == IDENTIFICADOR)
 		{
 			printf("ID\n");
+			printf("Lexema:%s\n", lexema);
 		}
 		else if (token == NUMERO_INTEIRO)
 		{
-			printf("NUMERO\n");
+			printf("Número\n");
+			printf("Lexema:%s\n", lexema);
 		}
 		token = lexico();
 	}
