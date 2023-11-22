@@ -10,6 +10,10 @@ BEGIN
 			WRITE(A,B)
 		END;
 
+	REPEAT
+		READ (A)
+	UNTIL (A = 10);
+
 	
 
 END.

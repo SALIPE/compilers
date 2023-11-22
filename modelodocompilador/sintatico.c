@@ -1629,7 +1629,7 @@ yyreduce:
 
 		insereInstrucao("CRVL",carregaParametro(e2));
 
-		insereInstrucao("CMMA",0);
+		insereInstrucao("CMAG",0);
 		insereInstrucao("DSVF",-2);
 		push(ip);
 
