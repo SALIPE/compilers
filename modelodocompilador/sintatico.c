@@ -73,7 +73,7 @@
 
 void yyerror(char *msg);
 
-#line 77 "sintatico.tab.c"
+#line 77 "sintatico.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -104,10 +104,7 @@ void yyerror(char *msg);
 # define YYERROR_VERBOSE 0
 #endif
 
-/* Use api.header.include to #include this header
-   instead of duplicating it here.  */
-#ifndef YY_YY_SINTATICO_TAB_H_INCLUDED
-# define YY_YY_SINTATICO_TAB_H_INCLUDED
+
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -173,7 +170,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_SINTATICO_TAB_H_INCLUDED  */
+
 
 
 
@@ -1418,19 +1415,19 @@ yyreduce:
   case 2:
 #line 66 "sintatico.y"
                         {insereInstrucao("INPP",0);}
-#line 1422 "sintatico.tab.c"
+#line 1419 "sintatico.c"
     break;
 
   case 3:
 #line 66 "sintatico.y"
                                                                        {insereInstrucao("PARA",0);}
-#line 1428 "sintatico.tab.c"
+#line 1425 "sintatico.c"
     break;
 
   case 7:
 #line 75 "sintatico.y"
                {nVars = 0;}
-#line 1434 "sintatico.tab.c"
+#line 1431 "sintatico.c"
     break;
 
   case 9:
@@ -1439,7 +1436,7 @@ yyreduce:
 		insereInstrucao("AMEM",nVars);
 		nVars = 0;
 	}
-#line 1443 "sintatico.tab.c"
+#line 1440 "sintatico.c"
     break;
 
   case 10:
@@ -1448,7 +1445,7 @@ yyreduce:
 		insereInstrucao("AMEM",nVars);
 		nVars = 0;
 		}
-#line 1452 "sintatico.tab.c"
+#line 1449 "sintatico.c"
     break;
 
   case 11:
@@ -1457,7 +1454,7 @@ yyreduce:
 		insereSimbolo(lexema,++ultimo_endereco_alocado,'i','v',escopo_atual);
 		nVars++;
 	}
-#line 1461 "sintatico.tab.c"
+#line 1458 "sintatico.c"
     break;
 
   case 12:
@@ -1466,7 +1463,7 @@ yyreduce:
 		insereSimbolo(lexema,++ultimo_endereco_alocado,'i','v',escopo_atual);
 		nVars++;
 	}
-#line 1470 "sintatico.tab.c"
+#line 1467 "sintatico.c"
     break;
 
   case 27:
@@ -1481,7 +1478,7 @@ yyreduce:
 			insereInstrucao("ARMZ",endereco);
 		}
 	}
-#line 1485 "sintatico.tab.c"
+#line 1482 "sintatico.c"
     break;
 
   case 28:
@@ -1496,19 +1493,19 @@ yyreduce:
 			insereInstrucao("ARMZ",endereco);
 		}
 	}
-#line 1500 "sintatico.tab.c"
+#line 1497 "sintatico.c"
     break;
 
   case 30:
 #line 160 "sintatico.y"
                                                {insereInstrucao("IMPR",0);}
-#line 1506 "sintatico.tab.c"
+#line 1503 "sintatico.c"
     break;
 
   case 31:
 #line 161 "sintatico.y"
                     {insereInstrucao("IMPR",0);}
-#line 1512 "sintatico.tab.c"
+#line 1509 "sintatico.c"
     break;
 
   case 32:
@@ -1522,7 +1519,7 @@ yyreduce:
 				push(endereco); //guarda endereco para o ARMNZ endereco
 			}
 	}
-#line 1526 "sintatico.tab.c"
+#line 1523 "sintatico.c"
     break;
 
   case 33:
@@ -1532,7 +1529,7 @@ yyreduce:
 			insereInstrucao("ARMZ",endereco);
 
 		}
-#line 1536 "sintatico.tab.c"
+#line 1533 "sintatico.c"
     break;
 
   case 34:
@@ -1541,7 +1538,7 @@ yyreduce:
 		insereInstrucao("DSVF",-2); //destino desconhecido ainda	
 		push(ip); //endereco da instrucao DSVF  
 	}
-#line 1545 "sintatico.tab.c"
+#line 1542 "sintatico.c"
     break;
 
   case 35:
@@ -1551,7 +1548,7 @@ yyreduce:
 		int e = pop(); //endereço da instrução DSVF que desviou para cá.
 		modificaRotulo(e,ip); //altera lá na DSVF colocando o desvio para cá.
 	}
-#line 1555 "sintatico.tab.c"
+#line 1552 "sintatico.c"
     break;
 
   case 37:
@@ -1563,7 +1560,7 @@ yyreduce:
 			insereInstrucao("NADA",0);
 			modificaRotulo(e,ip);//agora altera lá no DSVF para este endereço aqui.
 	}
-#line 1567 "sintatico.tab.c"
+#line 1564 "sintatico.c"
     break;
 
   case 39:
@@ -1572,7 +1569,7 @@ yyreduce:
 		insereInstrucao("NADA",0);
 		push(ip); //fará desvio para cá
 	}
-#line 1576 "sintatico.tab.c"
+#line 1573 "sintatico.c"
     break;
 
   case 40:
@@ -1581,7 +1578,7 @@ yyreduce:
 		insereInstrucao("DSVF",-2); //destino desconhecido.
 		push(ip); //endereço desta instrução
 	}
-#line 1585 "sintatico.tab.c"
+#line 1582 "sintatico.c"
     break;
 
   case 41:
@@ -1593,7 +1590,7 @@ yyreduce:
 		insereInstrucao("NADA",0);
 		modificaRotulo(e1,ip); //altera lá no DSVF para este endereço aqui.
 	}
-#line 1597 "sintatico.tab.c"
+#line 1594 "sintatico.c"
     break;
 
   case 42:
@@ -1602,7 +1599,7 @@ yyreduce:
 			insereInstrucao("NADA",0);
 			push(ip); //fará desvio para cá
 		}
-#line 1606 "sintatico.tab.c"
+#line 1603 "sintatico.c"
     break;
 
   case 43:
@@ -1611,7 +1608,7 @@ yyreduce:
 			int e = pop();
 			insereInstrucao("DSVF",e);
 		}
-#line 1615 "sintatico.tab.c"
+#line 1612 "sintatico.c"
     break;
 
   case 44:
@@ -1622,7 +1619,7 @@ yyreduce:
 		push(ip-1);
 		push(ip-1);
 	}
-#line 1626 "sintatico.tab.c"
+#line 1623 "sintatico.c"
     break;
 
   case 45:
@@ -1637,7 +1634,7 @@ yyreduce:
 		push(ip);
 
 	}
-#line 1641 "sintatico.tab.c"
+#line 1638 "sintatico.c"
     break;
 
   case 46:
@@ -1658,49 +1655,49 @@ yyreduce:
 		modificaRotulo(e1,ip); //altera lá no DSVF para este endereço aqui.
 		
 	}
-#line 1662 "sintatico.tab.c"
+#line 1659 "sintatico.c"
     break;
 
   case 47:
 #line 266 "sintatico.y"
                                                         {insereInstrucao("DISJ",0);}
-#line 1668 "sintatico.tab.c"
+#line 1665 "sintatico.c"
     break;
 
   case 48:
 #line 267 "sintatico.y"
                                                         {insereInstrucao("CONJ",0);}
-#line 1674 "sintatico.tab.c"
+#line 1671 "sintatico.c"
     break;
 
   case 50:
 #line 271 "sintatico.y"
                                 {insereInstrucao("CMMA",0);}
-#line 1680 "sintatico.tab.c"
+#line 1677 "sintatico.c"
     break;
 
   case 51:
 #line 272 "sintatico.y"
                                         {insereInstrucao("CMAG",0);}
-#line 1686 "sintatico.tab.c"
+#line 1683 "sintatico.c"
     break;
 
   case 52:
 #line 273 "sintatico.y"
                                                 {insereInstrucao("CMME",0);}
-#line 1692 "sintatico.tab.c"
+#line 1689 "sintatico.c"
     break;
 
   case 53:
 #line 274 "sintatico.y"
                                         {insereInstrucao("CMEG",0);}
-#line 1698 "sintatico.tab.c"
+#line 1695 "sintatico.c"
     break;
 
   case 54:
 #line 275 "sintatico.y"
                                                 {insereInstrucao("CMIG",0);}
-#line 1704 "sintatico.tab.c"
+#line 1701 "sintatico.c"
     break;
 
   case 55:
@@ -1708,37 +1705,37 @@ yyreduce:
                                                 {insereInstrucao("CMIG",0);
 								insereInstrucao("INVR",0);
 								}
-#line 1712 "sintatico.tab.c"
+#line 1709 "sintatico.c"
     break;
 
   case 57:
 #line 282 "sintatico.y"
                                 {insereInstrucao("SOMA",0);}
-#line 1718 "sintatico.tab.c"
+#line 1715 "sintatico.c"
     break;
 
   case 58:
 #line 283 "sintatico.y"
                                         {insereInstrucao("SUBT",0);}
-#line 1724 "sintatico.tab.c"
+#line 1721 "sintatico.c"
     break;
 
   case 60:
 #line 287 "sintatico.y"
                                 {insereInstrucao("MULT",0);}
-#line 1730 "sintatico.tab.c"
+#line 1727 "sintatico.c"
     break;
 
   case 61:
 #line 288 "sintatico.y"
                                         {insereInstrucao("DIVI",0);}
-#line 1736 "sintatico.tab.c"
+#line 1733 "sintatico.c"
     break;
 
   case 62:
 #line 289 "sintatico.y"
                                                 {insereInstrucao("INVR",0);}
-#line 1742 "sintatico.tab.c"
+#line 1739 "sintatico.c"
     break;
 
   case 63:
@@ -1746,7 +1743,7 @@ yyreduce:
                                         {insereInstrucao("CRCT",-1);
 							insereInstrucao("MULT",0);
 							}
-#line 1750 "sintatico.tab.c"
+#line 1747 "sintatico.c"
     break;
 
   case 66:
@@ -1761,7 +1758,7 @@ yyreduce:
 			}
 			
 	}
-#line 1765 "sintatico.tab.c"
+#line 1762 "sintatico.c"
     break;
 
   case 67:
@@ -1770,11 +1767,11 @@ yyreduce:
 				insereInstrucao("CRCT",atoi(lexema));		
 
 	}
-#line 1774 "sintatico.tab.c"
+#line 1771 "sintatico.c"
     break;
 
 
-#line 1778 "sintatico.tab.c"
+#line 1775 "sintatico.c"
 
       default: break;
     }

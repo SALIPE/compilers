@@ -235,15 +235,13 @@ instrucaoFOR:
 		push(ip);
 		push(ip-1);
 		push(ip-1);
-
 	}
 	STO fator{
-		int e1 = pop();
-		int e2 = pop();
-		insereInstrucao("CRCT",e1);
-		insereInstrucao("CRVL",e2);
+		int e2 = pop();//endereço da var
 
-		insereInstrucao("CMME",0);
+		insereInstrucao("CRVL",carregaParametro(e2));
+
+		insereInstrucao("CMMA",0);
 		insereInstrucao("DSVF",-2);
 		push(ip);
 
@@ -252,11 +250,10 @@ instrucaoFOR:
 		int e2 = pop(); //endereço da variavel contador
 		int e3 = pop();//endereço DSVS
 
-		int p = carregaParametro(e2);
 		insereInstrucao("CRCT",1);
-		insereInstrucao("CRVL",p);
+		insereInstrucao("CRVL",carregaParametro(e2));
 		insereInstrucao("SOMA",0);
-		insereInstrucao("ARMZ",e2);
+		insereInstrucao("ARMZ",carregaParametro(e2));
 		
 		insereInstrucao("DSVS",e3);
 
